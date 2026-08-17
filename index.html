@@ -258,19 +258,19 @@ ul{list-style:none}
 .cert-desc{font-size:.78rem;color:var(--text-2)}
 
 /* === TRUST (red full-width) === */
-.trust{background:var(--red);color:#fff;padding:72px 0;position:relative;overflow:hidden}
-.trust-watermark{position:absolute;right:-20px;top:50%;transform:translateY(-50%);opacity:.1;font-size:12rem;font-weight:900;font-style:italic;letter-spacing:-.05em;line-height:1;user-select:none;pointer-events:none}
-.trust-inner{display:flex;justify-content:space-between;align-items:center;gap:40px;position:relative;z-index:1}
-.trust-title{font-size:clamp(2rem,4.2vw,3.4rem);font-weight:900;line-height:1.02;letter-spacing:-.025em;max-width:340px}
-.trust-right{display:flex;flex-direction:column;gap:18px}
-.avatars{display:flex}
-.av{width:40px;height:40px;border-radius:50%;border:2.5px solid rgba(255,255,255,.5);margin-left:-10px;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:rgba(255,255,255,.2)}
-.av:first-child{margin-left:0}
-.trust-sub{font-size:.83rem;opacity:.8;margin-top:6px}
-.stars{display:flex;gap:3px;color:#FFD700;font-size:1.2rem}
-.rating-row{display:flex;align-items:center;gap:12px}
-.rating-num{font-size:2rem;font-weight:900;line-height:1}
-.rating-lbl{font-size:.82rem;opacity:.8}
+.reviews-head{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+.rating-badge{display:flex;align-items:center;gap:10px}
+.rating-badge-stars{display:flex;background:#1DB954;color:#fff;padding:4px 8px;border-radius:4px;font-size:.85rem;letter-spacing:1px;gap:1px}
+.rating-badge-text{font-size:.88rem;color:var(--text-2)}
+.rating-badge-text strong{color:var(--text)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.review-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px 26px;display:flex;flex-direction:column;gap:16px}
+.stars-sm{color:#FFB400;font-size:1rem;letter-spacing:2px}
+.review-text{font-size:.92rem;line-height:1.6;color:var(--text);font-style:italic}
+.review-author{display:flex;align-items:center;gap:12px;margin-top:auto}
+.review-avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.85rem;flex-shrink:0}
+.review-name{font-weight:700;font-size:.9rem}
+.review-verified{font-size:.78rem;color:#1DB954;display:flex;align-items:center;gap:4px}
 
 /* === CONTACT CTA === */
 .contact-inner{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
@@ -303,8 +303,8 @@ footer{background:#111;color:rgba(255,255,255,.85);padding:30px 0}
   .feat-grid{grid-template-columns:1fr 1fr}
   .feat-item:nth-child(2){border-right:none}
   .service-grid{grid-template-columns:1fr}
-  .trust-inner{flex-direction:column;text-align:center}
-  .trust-watermark{display:none}
+  .reviews-head{flex-direction:column;align-items:flex-start}
+  .reviews-grid{grid-template-columns:1fr}
   .contact-inner{flex-direction:column;text-align:center}
   .chips{justify-content:center}
   .footer-inner{flex-direction:column;align-items:center;text-align:center}
@@ -614,24 +614,47 @@ footer{background:#111;color:rgba(255,255,255,.85);padding:30px 0}
   </div>
 </section>
 
-<!-- ─── TRUST ─── -->
-<section class="trust" id="nosotros">
-  <div class="trust-watermark" aria-hidden="true">Ti</div>
+<!-- ─── REVIEWS ─── -->
+<section class="section" id="nosotros">
   <div class="container">
-    <div class="trust-inner">
-      <h2 class="trust-title">Confianza que se siente.</h2>
-      <div class="trust-right">
-        <div>
-          <div class="avatars">
-            <div class="av">😊</div><div class="av">👤</div><div class="av">😄</div><div class="av">🙂</div><div class="av">👋</div>
+    <div class="reviews-head">
+      <h2 class="h2">Lo que dicen nuestros clientes</h2>
+      <div class="rating-badge">
+        <div class="rating-badge-stars">★★★★★</div>
+        <div class="rating-badge-text"><strong>Excelente</strong> · 4.9 de 5 en reseñas</div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars-sm">★★★★★</div>
+        <p class="review-text">"Pedí mi iPhone 15 Pro Max un martes y el jueves ya lo tenía en mi casa en Lima. Todo original, con caja sellada y garantía. Superó lo que esperaba."</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background:#5B5FED">LG</div>
+          <div>
+            <div class="review-name">Laura G.</div>
+            <div class="review-verified"><span>✓</span> Comprador verificado</div>
           </div>
-          <p class="trust-sub">Miles de clientes ya confían en TIO IPHONE.</p>
         </div>
-        <div>
-          <div class="stars">★★★★★</div>
-          <div class="rating-row">
-            <span class="rating-num">5.0</span>
-            <span class="rating-lbl">+500 clientes satisfechos</span>
+      </div>
+      <div class="review-card">
+        <div class="stars-sm">★★★★★</div>
+        <p class="review-text">"Cambié la pantalla de mi iPhone 14 con ellos y quedó como nueva. El técnico me explicó todo el proceso y el precio fue justo. Ya es mi tienda de confianza."</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background:#E8871E">CM</div>
+          <div>
+            <div class="review-name">Carlos M.</div>
+            <div class="review-verified"><span>✓</span> Comprador verificado</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars-sm">★★★★★</div>
+        <p class="review-text">"Compré dos iPhones para mis hijos y llegaron a Arequipa sin problema. Me atendieron por WhatsApp todo el tiempo. Se nota que son importadores directos."</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background:#1EA86B">AP</div>
+          <div>
+            <div class="review-name">Ana P.</div>
+            <div class="review-verified"><span>✓</span> Comprador verificado</div>
           </div>
         </div>
       </div>
